@@ -1,0 +1,32 @@
+{
+  "name": "sqms",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Smart Queue Time Management System for hospitals",
+  "workspaces": [
+    "apps/api",
+    "apps/web"
+  ],
+  "scripts": {
+    "dev": "concurrently -n API,WEB -c cyan,magenta \"npm run dev --workspace=@sqms/api\" \"npm run dev --workspace=@sqms/web\"",
+    "dev:api": "npm run dev --workspace=@sqms/api",
+    "dev:web": "npm run dev --workspace=@sqms/web",
+    "build": "npm run build --workspace=@sqms/web",
+    "start": "npm run start --workspace=@sqms/api",
+    "preview": "npm run build && npm run start"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "socket.io": "^4.8.1"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "engines": {
+    "node": "22.x"
+  }
+}
